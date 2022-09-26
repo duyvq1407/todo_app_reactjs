@@ -1,12 +1,11 @@
 export const compareDate = (deadline) => {
-    const now = new Date('YYYY-MM-DD');
-    let compare = new Date(deadline, 'YYYY-MM-DD');
+    const now = new Date();
+    let compare = new Date(deadline);
     
     if(now.getFullYear() === compare.getFullYear()
        && now.getMonth()=== compare.getMonth()
        && now.getDay() === compare.getDay()){
-        return true
+        return false
     }
-    return now > deadline;
-    
+    return (now > compare);
 }
