@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #736f6f;
+  border-radius: 15px;
+}
+
+.App{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  background-image: url('https://st.quantrimang.com/photos/image/2019/04/24/multiplebackground-1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: unset;
+  color: #000
+}
+
+.todo-list{
+  background-color: rgba(172, 146, 148, 0.5);
+  border-radius: 10px;
+}
+
+
+.todo-app{
+  width: 850px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.todo-list ul:first-child{
+  border-bottom: 2px solid #736f6f;
+}
+
+.todo-list ul:first-child li,
+.todo-list ul:last-child li span{
+  padding: 12px 8px;
+  display: inline-block;
+  min-width: 200px
+}
+
+ul:last-child li span{
+  padding: 8px 8px !important;
+}
+
+.todo-list ul:last-child{
+  height: 400px;
+  overflow-y: scroll;
+}
+
