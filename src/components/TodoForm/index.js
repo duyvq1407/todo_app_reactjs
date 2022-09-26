@@ -138,13 +138,16 @@ const TodoForm = ({onAdd, onUpdate, todoEdit, onSearch}) => {
     return (
         <form className="w-full" onSubmit={handleSubmit(onSubmit)} >
             <div className="flex items-center border-b border-black py-2">
-                <button 
-                    type='button'
-                    className='ease-in-out duration-300 px-2 hover:text-blue-300 border-r-solid border-r-2 border-gray-500'
-                    onClick={() => {setIsSearch(!isSearch); resetForm()}}
-                >
-                    <FaSearch />
-                </button>
+                
+                <div className='flex px-2 border-r-solid border-r-2 border-gray-500 items-center'>
+                    <button 
+                        type='button' id='search'
+                        className='ease-in-out rounded-md bg-blue-300 px-3 py-2 duration-300 hover:bg-blue-400 text-red-500 hover:text-red-600'
+                        onClick={() => {setIsSearch(!isSearch); if(isSearch){onSearch()} ;resetForm()}}
+                    >
+                        <FaSearch/>
+                    </button>
+                </div>
 
                 <div className='flex px-2 ml-3 flex-col justify-start w-3/4'>
                     <input 

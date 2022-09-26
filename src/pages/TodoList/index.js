@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Todo from '../../components/Todo';
 import TodoForm from '../../components/TodoForm';
 
@@ -12,17 +13,19 @@ function TodoList() {
     localStorage.setItem('todoList', JSON.stringify([...todoList, data]))
     setTodoList([...todoList, data])
     getTodoList();
+    toast.success("Thêm thành công.")
   }
 
   const handleRemove = (id) => {
     let newlist = todoList.filter(item => item.id !== id);
     localStorage.setItem('todoList', JSON.stringify(newlist))
     setTodoList(newlist)
-    getTodoList();
+    setTodoSearch(todoSearch.filter(item=> item.id !== id))
+    toast.success("Xóa thành công.")
   }
 
   const handleEdit = (todo) => {
-    setTodoEdit({...todo, search: false})
+    setTodoEdit(todo)
   }
 
   const handleUpdate = (todo) => {
@@ -35,6 +38,7 @@ function TodoList() {
     localStorage.setItem('todoList', JSON.stringify(newlist));
     setTodoEdit({});
     getTodoList();
+    toast.success("Sửa thành công.")
   }
 
   const handleSearch = (todoSearch) => {
