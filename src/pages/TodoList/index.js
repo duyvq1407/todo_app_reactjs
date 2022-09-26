@@ -5,8 +5,8 @@ import TodoForm from '../../components/TodoForm';
 
 function TodoList() {
   const [todoList, setTodoList] = useState([]);
+  const [todoSearch, setTodoSearch] = useState([])
   const [todoEdit, setTodoEdit] = useState({});
-  // const [isSearch, setIsSearch] = useState(false)
   
   const handleAdd = (data) => {
     localStorage.setItem('todoList', JSON.stringify([...todoList, data]))
@@ -22,7 +22,7 @@ function TodoList() {
   }
 
   const handleEdit = (todo) => {
-    setTodoEdit(todo)
+    setTodoEdit({...todo, search: false})
   }
 
   const handleUpdate = (todo) => {
@@ -32,15 +32,16 @@ function TodoList() {
       }
       return item
     })
-    localStorage.setItem('todoList', JSON.stringify(newlist))
-    setTodoEdit({})
+    localStorage.setItem('todoList', JSON.stringify(newlist));
+    setTodoEdit({});
+    getTodoList();
   }
 
-  const handleSearch = (todoSearch, isCancel) => {
-    if (isCancel) {
+  const handleSearch = (todoSearch) => {
+    if (!todoSearch) {
       getTodoList();
     } else {
-      let searchResult = [...JSON.parse(localStorage.getItem('todoList'))]
+      let searchResult = [...todoList]
       const {title, deadlineSearchFrom, deadlineSearchTo, status} = todoSearch
       //filter by title
 
@@ -63,14 +64,14 @@ function TodoList() {
       if (status) {
         searchResult = searchResult.filter(item => item.status === status)
       }
-      setTodoList(searchResult)
-      // getTodoList();
+      setTodoSearch(searchResult)
     }
   }
-  
+
   const getTodoList = () => {
     if (localStorage.getItem('todoList')) {
       const data = JSON.parse(localStorage.getItem('todoList'))
+      setTodoSearch([])
       setTodoList(data)
     }    
   };
@@ -83,7 +84,6 @@ function TodoList() {
     <div className='flex'>
       <div className='container todo-app mx-auto'>
           <TodoForm 
-            // isSearch={isSearch}
             onAdd={handleAdd}
             onUpdate={handleUpdate}
             todoEdit={todoEdit}
@@ -93,7 +93,7 @@ function TodoList() {
             <Todo 
               onDelete={handleRemove} 
               onEdit={handleEdit} 
-              todoList={todoList}
+              todoList={todoSearch[0] ? todoSearch : todoList}
             />
           </div>
       </div>
