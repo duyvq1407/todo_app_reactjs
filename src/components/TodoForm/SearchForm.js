@@ -12,12 +12,12 @@ const SearchForm = ({onSearch}) => {
     const onSubmit = (data) => {
         
         onSearch({
-            id: data.id,
             title: data.title, 
             deadlineSearchFrom: data.from, 
             deadlineSearchTo: data.to, 
             status: data.status
         });
+        reset()
     }
 
 
