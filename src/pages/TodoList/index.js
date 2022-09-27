@@ -65,6 +65,7 @@ function TodoList() {
       setTodoSearch([])
       getTodoList();
     } else {
+      console.log(todoSearch);
       let searchResult = [...todoList]
       const {title, deadlineSearchFrom, deadlineSearchTo, status} = todoSearch
       //filter by title
@@ -72,6 +73,7 @@ function TodoList() {
       if(title){
         searchResult = searchResult.filter(item => item.title.toLowerCase().includes(title.toLowerCase()))
       }
+      console.log(searchResult);
 
       //filter by deadline
 
@@ -91,11 +93,7 @@ function TodoList() {
         searchResult = searchResult.filter(item => item.status === status)
       }
 
-      if (searchResult.length === todoList.length) {
-        setTodoSearch([])
-      } else {
-        setTodoSearch(searchResult)
-      }
+      setTodoSearch(searchResult)
     }
   }
 
