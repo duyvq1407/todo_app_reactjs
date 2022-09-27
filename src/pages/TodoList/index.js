@@ -68,12 +68,12 @@ function TodoList() {
       console.log(todoSearch);
       let searchResult = [...todoList]
       const {title, deadlineSearchFrom, deadlineSearchTo, status} = todoSearch
+      
       //filter by title
 
       if(title){
         searchResult = searchResult.filter(item => item.title.toLowerCase().includes(title.toLowerCase()))
       }
-      console.log(searchResult);
 
       //filter by deadline
 

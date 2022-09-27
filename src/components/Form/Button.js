@@ -12,6 +12,7 @@ const ButtonSubmit = (props) => {
                 <>
                     <button 
                     type="submit" 
+                    onClick={() => {resetForm()}}
                     className="min-w-[61px] flex-shrink-0 bg-black hover:bg-teal-700 border-black hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
                     >
                         Search
