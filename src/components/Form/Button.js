@@ -3,7 +3,7 @@ import React from 'react'
 const ButtonSubmit = (props) => {
         
     const resetForm = () => {
-        props.reset({title: '', status: '', deadline: ''});
+        props.reset({title: '', status: '', from: '', to: '', deadline: ''});
     }
 
     const switchBtn = () => {
