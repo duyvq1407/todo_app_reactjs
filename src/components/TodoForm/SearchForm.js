@@ -23,7 +23,7 @@ const SearchForm = ({onSearch}) => {
 
     return (
         <form className="w-full" onSubmit={handleSubmit(onSubmit)} >
-            <div className="flex items-center border-b-2 border-blue-500 py-2">
+            <div className="flex flex-col items-start md:items-center md:flex-row border-b-2 border-blue-500 py-2">
 
                 <InputTitle isRequired={false} register={register} errors={errors}/>
 
@@ -32,7 +32,9 @@ const SearchForm = ({onSearch}) => {
 
                 <SelectStatus register={register}/>
 
-                <ButtonSubmit reset={reset} isSearch={true} onCancel={onSearch}/>
+                <div className='flex my-3 md:mt-5 justify-start'>
+                    <ButtonSubmit reset={reset} isSearch={true} onCancel={onSearch}/>
+                </div>
 
             </div>
         </form> 

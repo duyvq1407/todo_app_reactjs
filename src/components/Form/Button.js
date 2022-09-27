@@ -64,9 +64,9 @@ const ButtonSubmit = (props) => {
         )
     }
     return (
-        <div className="flex min-w-[120px]">
+        <>
             {switchBtn()}
-        </div>
+        </>
     )
 }
 

@@ -68,7 +68,7 @@ function TodoList() {
       console.log(todoSearch);
       let searchResult = [...todoList]
       const {title, deadlineSearchFrom, deadlineSearchTo, status} = todoSearch
-      
+
       //filter by title
 
       if(title){
@@ -119,35 +119,34 @@ function TodoList() {
   }
   
   return (
-    <div className='flex'>
-      <div className='container todo-app mx-auto'>
-        
-        {switchForm()}
+    <div className='container todo-app mx-auto w-[90%] lg:w-[850px]'>
+      
+      {switchForm()}
 
-        <div className='flex justify-end '>
-          <div
-            className={`${ isSearch ? 'flex' : 'hidden' } mr-2 mt-5 px-3 py-2 text-gray-700`}
-          >
-            {isSearch && <h2>Tìm thấy "<i className='text-red-500 font-bold'>{todoSearch.length}</i>" kết quả.</h2>}
-          </div>
-          <button 
-              onClick={() => {setIsSearch(true); setTodoEdit({})}}
-              type='button'
-              className={`${ isSearch ? 'hidden' : 'flex' } mr-2 justify-center items-center mt-5 rounded-md bg-blue-400 px-3 py-2 duration-500 hover:bg-blue-500 text-gray-700 hover:text-gray-800`}
-          >
-              Search <FaSearch className='ml-2'/>
-          </button>
+      <div className='flex justify-end'>
+        <div
+          className={`${ isSearch ? 'flex' : 'hidden' } hidden sm:flex mr-2 mt-5 px-3 py-2 text-gray-700`}
+        >
+          {isSearch && <h2>Tìm thấy "<i className='text-red-500 font-bold'>{todoSearch.length}</i>" kết quả.</h2>}
         </div>
-        
-        <div className='mt-5'>
-          <Todo 
-            onDelete={handleRemove} 
-            isSearch={isSearch}
-            onEdit={handleEdit} 
-            todoList={isSearch ? todoSearch : todoList}
-          />
-        </div>
+        <button 
+            onClick={() => {setIsSearch(true); setTodoEdit({})}}
+            type='button'
+            className={`${ isSearch ? 'hidden' : 'flex' } mr-2 justify-center items-center mt-5 rounded-md bg-blue-400 px-3 py-2 duration-500 hover:bg-blue-500 text-gray-700 hover:text-gray-800`}
+        >
+            Search <FaSearch className='ml-2'/>
+        </button>
       </div>
+      
+      <div className='mt-5'>
+        <Todo 
+          onDelete={handleRemove} 
+          isSearch={isSearch}
+          onEdit={handleEdit} 
+          todoList={isSearch ? todoSearch : todoList}
+        />
+      </div>
+
     </div>
   );
 }

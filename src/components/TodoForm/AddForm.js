@@ -22,15 +22,17 @@ const AddForm = ({onAdd}) => {
     
     return (
         <form className="w-full" onSubmit={handleSubmit(onSubmit)} >
-            <div className="flex items-center border-b border-black py-2">
+            <div className="flex flex-col items-start md:items-center md:flex-row border-b border-black py-2">
 
                 <InputTitle isRequired={true} register={register} errors={errors}/>
 
                 <InputDeadline label={'Deadline'} register={register}/>
 
                 <SelectStatus register={register}/>
-
-                <ButtonSubmit reset={reset}/>
+                
+                <div className='flex my-3 md:mt-5 justify-center'>
+                    <ButtonSubmit reset={reset}/>
+                </div>
 
             </div>
         </form> 

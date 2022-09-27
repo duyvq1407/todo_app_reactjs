@@ -26,7 +26,7 @@ const EditForm = ({onUpdate, todoEdit}) => {
 
     return (
         <form className="w-full" onSubmit={handleSubmit(onSubmit)} >
-            <div className="flex items-center border-b border-black py-2">
+            <div className="flex flex-col md:flex-row items-start md:items-center border-b border-black py-2">
 
                 <InputTitle isRequired={true} register={register} errors={errors}/>
 
@@ -34,7 +34,9 @@ const EditForm = ({onUpdate, todoEdit}) => {
 
                 <SelectStatus register={register}/>
 
-                <ButtonSubmit reset={reset} onCancel={onUpdate} isEdit={true}/>
+                <div className='flex md:mt-0 my-3'>
+                    <ButtonSubmit reset={reset} onCancel={onUpdate} isEdit={true}/>
+                </div>
 
             </div>
         </form> 
