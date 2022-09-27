@@ -125,7 +125,7 @@ function TodoList() {
 
       <div className='flex justify-end'>
         <div
-          className={`${ isSearch ? 'flex' : 'hidden' } hidden sm:flex mr-2 mt-5 px-3 py-2 text-gray-700`}
+          className={`${ isSearch ? 'flex' : 'hidden' } flex mr-2 mt-5 px-3 py-2 text-gray-700`}
         >
           {isSearch && <h2>Tìm thấy "<i className='text-red-500 font-bold'>{todoSearch.length}</i>" kết quả.</h2>}
         </div>
